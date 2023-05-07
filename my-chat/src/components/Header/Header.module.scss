@@ -1,0 +1,16 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: 40px;
+    align-items: center;
+    border:1px solid rgb(164, 240, 66)
+}
+.login__div {
+    margin-left: 40px;
+}
+.login__div {
+    font-family: 'Inter Medium';
+    font-size: 16px;
+    line-height: 17px;
+}

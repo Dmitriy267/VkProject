@@ -1,0 +1,55 @@
+.myProfil__section{
+    display: flex;  
+}
+.wrapperProfil__div{
+    display: flex;
+    flex-direction: column;
+    width: 680px;
+    height: auto;
+}
+.profil__div{
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-top: 30px;
+    width: 350px;
+    height: 360px;
+
+}
+
+.profil__div img{
+    border-radius:50%;
+    width: 150px;
+    height: 150px;
+    border:2px solid #000;
+}
+.myInfo__div{
+    display: flex;
+    flex-direction: column;
+}
+.profil__ul{
+    padding: 0px;
+}
+
+.postresult__div{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 400px;
+    margin-left: 115px;
+    margin-top: 30px;
+}
+.dataPost__div{
+    display: block;
+    border:2px solid rgb(111, 141, 238);
+    width: 490px;
+    height: 390px;
+}
+.postBlock__div{
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-top: 20px;
+    width: 350px;
+    height: 120px;
+}
