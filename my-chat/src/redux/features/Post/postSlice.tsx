@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-export interface UserState{
+export interface PostState{
   post:string;
 }
-const initialState: UserState={
+const initialState: PostState={
     post:''
 }
 export const postSlice=createSlice({
@@ -17,5 +17,5 @@ export const postSlice=createSlice({
 })
 
 export const {addPost}=postSlice.actions;
-export const postSelector=(state:UserState)=>state.post;
+export const postSelector=(state:PostState)=>state.post;
 export default postSlice.reducer;

@@ -29,7 +29,6 @@ function PageRegistration (){
         dispatch (ageUser(age));
         dispatch (cityUser(city));
         dispatch(univerUser(univer));
-        console.log (dispatch(univerUser(univer)))
         setData(data=>!data)    
     }
 
@@ -42,7 +41,7 @@ function PageRegistration (){
      
         <label >
             Логин пользователя:
-            <input type='text' placeholder='Логин' {...register('login',{required:true, minLength:8})}/>
+            <input type='text' placeholder='Логин' {...register('login',{required:true, minLength:5})}/>
         <img src={user} alt='Иконка пользователя' className={styles.registration__user}/>
         </label >
         <label >

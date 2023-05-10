@@ -1,47 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useAppDispatch } from '../../redux/hooks/hooks';
+import { ButtonAdd } from '../common/ButtonAdd/ButtonAdd';
 import styles from './AddImagePostPage.module.scss';
-import img1 from '../../image/productPost/img1.jpg';
-import img2 from '../../image/productPost/img2.jpg';
-import img3 from '../../image/productPost/img3.jpg';
-import img4 from '../../image/productPost/img4.jpg';
-import img5 from '../../image/productPost/img5.jpg';
-import img6 from '../../image/productPost/img6.jpg';
-const imageProduct=[{
-    id:1,
-    image:`${img1}`,
-    altDescript:'Фото',
-}, 
-{
-    id:2,
-    image:`${img2}`,
-    altDescript:'Фото', 
-},
-{
-    id:3,
-    image:`${img3}`,
-    altDescript:'Фото', 
-},
-{
-    id:4,
-    image:`${img4}`,
-    altDescript:'Фото', 
-},
-{
-    id:5,
-    image:`${img5}`,
-    altDescript:'Фото', 
-},
-{
-    id:6,
-    image:`${img6}`,
-    altDescript:'Фото', 
-}
-]
+import {addImagePost} from '../../redux/features/ImagePost/ImagePostSlice';
+
 function AddImagePostPage (){
+    const [myImage, setMyImage]=useState([]);
+    const dispatch=useAppDispatch()
+    const getImage=async ()=>{
+        const response=await fetch ('/animals');
+        const data=await response.json();
+        console.log(data)
+       setMyImage(data)
+    }
+    useEffect(()=>{
+        getImage();
+    }, [])
     return(
+      <>
         <div className={styles.addImage__div}>
-            <button>Добавить</button>
+        {myImage.map((el,id )=>{
+            const {img, altDescript}=el;
+            return(
+            <div key={id} className={styles.formBlock__div}>
+               <img src={`${img}`} alt={ `${altDescript}`} className={styles.addImage__image} />
+               <div className={styles.position__div}>
+               <ButtonAdd onClick={()=>dispatch (addImagePost(el))}>Добавить</ButtonAdd>
+               </div>
+            </div>
+         
+            )
+
+        })}
         </div>
+        </>
+   
     )
 }
 export {AddImagePostPage}
